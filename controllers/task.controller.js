@@ -6,8 +6,8 @@ exports.createTask = (req, res) => {
   const userId = req.user.id;
 
   TaskModel.createTask(title, description, status, dueDate, userId, (err) => {
-    if (err) return res.status(500).json({ error: err });
-    res.status(201).json({ message: "Task created" });
+    if (err) return res.status(500).json({ error: err,status:500,Success:false});
+    res.status(201).json({ message: "Task created",status:201,Success:true });
   });
 };
 
@@ -18,8 +18,8 @@ exports.getTasks = (req, res) => {
   const userId = req.user.id;
 
   TaskModel.getTasksByUser(userId, status, limit, offset, (err, tasks) => {
-    if (err) return res.status(500).json({ error: err });
-    res.json(tasks);
+    if (err) return res.status(500).json({ error: err ,status:500,Success:false});
+    res.status(201).json({data:tasks,message:"Get all tasks" ,status:201,Success:true});
   });
 };
 
@@ -30,12 +30,12 @@ exports.updateTask = (req, res) => {
   const userId = req.user.id;
 
   TaskModel.findTaskByIdAndUser(id, userId, (err, results) => {
-    if (err) return res.status(500).json({ error: err });
+    if (err) return res.status(500).json({ error: err ,status:500,Success:false});
     if (results.length === 0) return res.status(403).json({ message: "Access denied" });
 
     TaskModel.updateTask(id, userId, title, description, status, dueDate, (err) => {
-      if (err) return res.status(500).json({ error: err });
-      res.json({ message: "Task updated successfully" });
+      if (err) return res.status(500).json({ error: err ,status:500,Success:false});
+      res.json({ message: "Task updated successfully" ,status:201,Success:true});
     });
   });
 };
@@ -46,12 +46,12 @@ exports.deleteTask = (req, res) => {
   const userId = req.user.id;
 
   TaskModel.findTaskByIdAndUser(id, userId, (err, results) => {
-    if (err) return res.status(500).json({ error: err });
+    if (err) return res.status(500).json({ error: err ,status:500,Success:false});
     if (results.length === 0) return res.status(403).json({ message: "Access denied" });
 
     TaskModel.deleteTask(id, userId, (err) => {
-      if (err) return res.status(500).json({ error: err });
-      res.json({ message: "Task deleted successfully" });
+      if (err) return res.status(500).json({ error: err ,status:500,Success:false});
+      res.json({ message: "Task deleted successfully" ,status:201,Success:true});
     });
   });
 };
