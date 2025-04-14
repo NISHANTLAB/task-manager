@@ -113,7 +113,7 @@ Each authenticated user can:
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-repo/task-manager-api.git
+git clone https://github.com/NISHANTLAB/task-manager.git
 
 # Install dependencies
 npm install
