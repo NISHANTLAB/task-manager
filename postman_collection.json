@@ -1,0 +1,9 @@
+{
+  "info": {
+    "name": "Task Manager API",
+    "_postman_id": "abc123",
+    "description": "API requests for testing auth and task routes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": []
+}

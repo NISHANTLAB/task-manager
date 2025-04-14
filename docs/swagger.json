@@ -1,0 +1,9 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Task Manager API",
+    "description": "API documentation using Swagger"
+  },
+  "paths": {}
+}
